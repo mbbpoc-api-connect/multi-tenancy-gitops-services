@@ -2,6 +2,21 @@ ibm-apic-a7s-instance:
   ibmapica7sinstance:
     name: analytics
     spec:
+      external:
+    offload:
+      enabled: true
+        output: |
+          http {
+            url => "54.236.249.188:9000"
+            http_method => "post"
+            codec => "json"
+            content_type => "application/json"
+            headers => {
+              "x-acme-index" => "8"
+              "x-acme-key" => "0d5d259f-b8c5-4398-9e58-77b05be67037"
+            }
+            id => "offload_http"
+          }
       version: 10.0.3.0-ifix1
       license:
         accept: true
